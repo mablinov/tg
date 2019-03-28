@@ -33,6 +33,7 @@ public:
 	);
 
 	float get_elem(int row, int col) const;
+	float set_elem(int row, int col, float val);
 
 	void fill(float value);
 

@@ -38,6 +38,11 @@ float mat4::get_elem(int row, int col) const
 	return m[col * 4 + row];
 }
 
+float mat4::set_elem(int row, int col, float val)
+{
+	m[col * 4 + row] = val;
+}
+
 void mat4::fill(float value)
 {
 	for (int i = 0; i < 16; ++i) {
