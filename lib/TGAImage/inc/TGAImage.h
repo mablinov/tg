@@ -98,13 +98,13 @@ private:
 };
 
 template<class T>
-static T TGAImage::extract(const uint8_t * header, size_t index)
+T TGAImage::extract(const uint8_t * header, size_t index)
 {
 	return *((T *)&header[index]);
 }
 
 template<class T>
-static void TGAImage::emplace(const uint8_t * header, size_t index, int value)
+void TGAImage::emplace(const uint8_t * header, size_t index, int value)
 {
 	*((T *)(&header[index])) = value;
 }

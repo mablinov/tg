@@ -7,6 +7,9 @@
 #include "WavefrontObj.h"
 #include "Mesh.h"
 
+#include "GL/glew.h"
+#include "GL/freeglut.h"
+
 App::App() {
 
 }
