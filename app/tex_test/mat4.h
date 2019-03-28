@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include <ostream>
 
 struct vec3 {
 	float x, y, z;
@@ -33,7 +34,7 @@ public:
 	);
 
 	float get_elem(int row, int col) const;
-	float set_elem(int row, int col, float val);
+	void set_elem(int row, int col, float val);
 
 	void fill(float value);
 
@@ -47,4 +48,6 @@ public:
 	static mat4 identity();
 	static mat4 scale(float factor);
 	static mat4 translate(const vec3 &vector);
+
+	friend std::ostream &operator<<(std::ostream &out, const mat4 &rhs);
 };

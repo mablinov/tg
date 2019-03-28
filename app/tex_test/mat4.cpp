@@ -1,5 +1,7 @@
 #include "mat4.h"
 
+#include <sstream>
+
 mat4::mat4() {
 	for (size_t i = 0; i < 16; ++i) {
 		m[i] = 0.0f;
@@ -38,7 +40,7 @@ float mat4::get_elem(int row, int col) const
 	return m[col * 4 + row];
 }
 
-float mat4::set_elem(int row, int col, float val)
+void mat4::set_elem(int row, int col, float val)
 {
 	m[col * 4 + row] = val;
 }
@@ -153,4 +155,27 @@ vec4::vec4()
 vec4::vec4(float a, float b, float c, float d)
 	: x(a), y(b), z(c), w(d)
 {
+}
+
+std::ostream & operator<<(std::ostream & out, const mat4 & rhs)
+{
+	std::stringstream ss;
+	ss.precision(4);
+	ss << std::scientific;
+
+	for (int row = 0; row < 4; ++row) {
+		ss << "[";
+		for (int col = 0; col < 4; ++col) {
+			ss << rhs.m[col * 4 + row];
+			if (col + 1 == 4) {
+				ss << "]\n";
+			}
+			else {
+				ss << " ";
+			}
+		}
+	}
+
+	out << ss.str();
+	return out;
 }
